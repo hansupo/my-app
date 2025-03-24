@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Switch } from "@/components/ui/switch"
 import {
   Table,
   TableBody,
@@ -129,7 +128,6 @@ export default function Home() {
       label: name
     }))
   )
-  const [doneExercises, setDoneExercises] = useState<string[]>([])
   const [customExercises, setCustomExercises] = useState<string[]>([])
   const [lastWorkoutDates, setLastWorkoutDates] = useState<{ [key: string]: string }>({})
 
@@ -161,11 +159,6 @@ export default function Home() {
       }
     }
   }, [selectedExercise])
-
-  useEffect(() => {
-    const storedData = loadFromLocalStorage()
-    setDoneExercises(Object.keys(storedData))
-  }, [])
 
   useEffect(() => {
     const loadedCustomExercises = loadCustomExercises()
